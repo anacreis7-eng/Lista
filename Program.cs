@@ -6,33 +6,41 @@ namespace Lista
     {
         static void Main(string[] args)
         {
-        namespace Lista
-    {
-        internal class Program
-        {
-            static void Main(string[] args)
+
+            List<int> Numeros = new List<int>();
+            int Multiplicacao = 1;
+
+            while (true)
             {
-                List<int> Lista1 = new List<int> { 2, 4, 6, 8, 3, 1, 9, 7, 5 };
-
-                List<int> Lista2 = new List<int> { 10, 14, 16, 12, 13, 17, 18, 19, 11 };
-
-                List<List<int>> Tudo = new List<List<int>> { Lista1, Lista2 };
-
-
-                foreach (var t in Tudo)
-                {
-                    t.Sort();
-
-
-                    foreach (var item in t)
-                    {
-                        Console.WriteLine(item);
-
-                    }
-                }
+                Console.WriteLine("Digite números para a lista (Envie 0 para parar)");
+                int NumeroAdicionar = Convert.ToInt32(Console.ReadLine());
+                Numeros.Add(NumeroAdicionar);
+                if (NumeroAdicionar == 0)
+                    break;
             }
+
+            foreach (var numeros in Numeros)
+                {
+                Console.WriteLine(numeros);
+                if (numeros == 0)
+                    break;
+                else
+                    Multiplicacao *= numeros;
+                }
+            Numeros.Order();
+            Numeros.RemoveAt(Numeros.Count() - 1);
+
+
+            int MaiorNumero = Numeros.Max();
+            Console.WriteLine("O maior número é:\n " + MaiorNumero);
+            int MenorNumero = Numeros.Min();
+            Console.WriteLine("O Menor número é:\n " + MenorNumero);
+
+            int SomaNumeros = Numeros.Sum();
+            Console.WriteLine("A soma dos números é:\n " + SomaNumeros);
+
+            Console.WriteLine("A multiplicação dos números inseridos é de:\n " + Multiplicacao);
         }
-    }
-}
+
     }
 }
