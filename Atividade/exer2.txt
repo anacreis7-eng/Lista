@@ -1,0 +1,30 @@
+﻿using System.ComponentModel;
+
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<double> P1 = new List<double> {10, 4.5, 5};
+            List<double> P2 = new List<double> { 9, 7.8, 4.7 };
+
+            double media1 = P1.Sum() / P1.Count;
+            double media2 = P2.Sum() / P2.Count;
+
+            if(media1 > media2)
+            {
+                Console.WriteLine($"A média da Turma1 é de {media1}, dessa forma, obtendo um maior desempenho que a Turma2 {media2}");
+                Console.WriteLine(string.Join(", ", P1));
+            }
+            else
+            {
+                Console.WriteLine($"A média da Turma2 é de {media2}, dessa forma, obtendo um maior desempenho que a Turma1 {media1}");
+                Console.WriteLine(string.Join(", ", P2));
+            }
+
+
+
+        }
+    }
+}
