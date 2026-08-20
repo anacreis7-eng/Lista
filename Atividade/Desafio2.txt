@@ -1,0 +1,30 @@
+﻿using System.ComponentModel;
+
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<int> Numeros = new List<int>();
+
+            while (true)
+            {
+                Console.WriteLine("Digite números para a lista (Envie 0 para parar)");
+                int NumeroAdicionar = Convert.ToInt32(Console.ReadLine());
+                Numeros.Add(NumeroAdicionar);
+                if (NumeroAdicionar == 0)
+                    break;
+            }
+
+            foreach (var numeros in Numeros)
+            {
+                Console.WriteLine(numeros);
+            }
+            int SomaNumeros = Numeros.Sum();
+            Console.WriteLine("A soma dos números é:\n " + SomaNumeros);
+        }
+
+    }
+}
