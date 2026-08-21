@@ -1,0 +1,63 @@
+﻿using System.Threading.Channels;
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<bool> Respostas = new List<bool>();
+            int QntdRespostasTrue = 0;
+
+            while (true)
+            {
+                string[] perguntas = new string[]
+                {
+                    "Telefonou para a vítima?",
+                    "Esteve no local do crime?",
+                    "Mora perto da vítima?",
+                    "Devia para a vítima?",
+                    "Já trabalhou com a vítima?"
+                };
+
+                foreach (string pergunta in perguntas)
+                {
+                    Console.Write($"{pergunta} (Sim/Não): ");
+                    string resposta = Console.ReadLine()!.Trim().ToLower();
+
+                    if (resposta == "sim" || resposta == "s")
+                    {
+                        Respostas.Add(true);
+                    }
+                    else
+                    {
+                        Respostas.Add(false);
+                    }
+                }
+
+                foreach (bool item in Respostas)
+                    if (item == true)
+                    {
+                        QntdRespostasTrue++;
+                    }
+                break;
+            }
+
+            if (QntdRespostasTrue == 2)
+            {
+                Console.WriteLine("Você é suspeita/o");
+            }
+            else if (QntdRespostasTrue >= 3 && QntdRespostasTrue <= 4)
+            {
+                Console.WriteLine("Você é cúmplice");
+            }
+            else if (QntdRespostasTrue == 5)
+            {
+                Console.WriteLine("Você é o Assassina/o");
+            }
+            else
+            {
+                Console.WriteLine("Você é inocente");
+            }
+        }
+    }
+}
