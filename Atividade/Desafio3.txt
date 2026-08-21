@@ -1,0 +1,28 @@
+﻿using System.Threading.Channels;using System.Threading.Channels;
+namespace Lista
+{
+    internal class Program    {
+        static void Main(string[] args)
+        {
+            List<string> Palavra = new List<string>();
+
+            while (true)
+            {
+
+                Console.WriteLine("Escreva palavras para adicionar a lista (Digite 0 para parar o programa)");
+                string QuantPalavras = Console.ReadLine().ToLower();
+
+                if (QuantPalavras == "0")
+                    break;
+                Palavra.Add(QuantPalavras);
+            }
+            Console.WriteLine("Solicite a palavra que deseja contar");
+            string PalavraContar = Console.ReadLine().ToLower();
+            bool EncontrarPalavra = Palavra.Any(p => p.ToLower() == PalavraContar);
+            int PalavraEncontrada = Palavra.Count(p => p.ToLower() == PalavraContar);
+            if (EncontrarPalavra)
+                Console.WriteLine("A palavra apareceu " + PalavraEncontrada);
+            else Console.WriteLine("Escolha uma palavra da lista");
+        }
+    }
+}
