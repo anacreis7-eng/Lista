@@ -1,0 +1,41 @@
+﻿using System.Threading.Channels; namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> Numeros = new List<int> { };
+            List<int> NumerosRepetidos = new List<int> { };
+            List<int> NumerosSemRepetidos = new List<int> { };
+
+            while (true)
+            {
+                Console.WriteLine("Digite números para a lista (Envie 0 para parar)");
+                int NumerosDigitados = Convert.ToInt32(Console.ReadLine());
+                Numeros.Add(NumerosDigitados);
+                if (NumerosDigitados == 0) break;
+            }
+
+            Numeros.RemoveAt(Numeros.Count() - 1);
+            foreach (var item in Numeros)
+            {
+                if (!NumerosSemRepetidos.Contains(item) && !NumerosRepetidos.Contains(item))
+                {
+
+                    NumerosSemRepetidos.Add(item);
+
+                }
+                else
+                {
+                    NumerosSemRepetidos.Remove(item);
+                    NumerosRepetidos.Remove(item);
+                    NumerosRepetidos.Add(item);
+                }
+            }
+            Console.WriteLine("Números repetidos: " + string.Join(", ", NumerosRepetidos));
+            Console.WriteLine("Números sem repetição: " + string.Join(", ", NumerosSemRepetidos));
+            Console.WriteLine("Números digitados: " + string.Join(", ", Numeros));
+
+        }
+    }
+}
